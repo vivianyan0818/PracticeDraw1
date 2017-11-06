@@ -2,6 +2,8 @@ package com.hencoder.hencoderpracticedraw1.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -23,6 +25,25 @@ public class Practice4DrawPointView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
+        float[] points = {0, 0, 50, 50, 100, 50, 50, 100, 100, 100, 150, 50, 150, 100};
+
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        paint.setColor(Color.BLUE);
+        paint.setStrokeWidth(20);
+        canvas.drawPoints(points, 2 /* 跳过两个数，即前两个 0 */,
+                2, paint);
+
+        paint.setStrokeCap(Paint.Cap.BUTT);
+        canvas.drawPoints(points, 4 /* 跳过两个数，即前两个 0 */,
+                2, paint);
+
+
+        paint.setStrokeCap(Paint.Cap.SQUARE);
+        canvas.drawPoints(points, 6 /* 跳过两个数，即前两个 0 */,
+                4, paint);
+
 
 //        练习内容：使用 canvas.drawPoint() 方法画点
 //        一个圆点，一个方点
